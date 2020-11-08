@@ -1,0 +1,20 @@
+Images Pulled :
+
+docker pull selenium/hub
+docker pull selenium/node-chrome-debug
+docker pull selenium/node-firefox-debug
+docker pull selenium/node-firefox
+
+https://github.com/SeleniumHQ/docker-selenium/tree/selenium-3
+
+Commands Used:
+docker run -d -p 4446:4444 --name selenium-hub -P selenium/hub
+docker ps -a
+docker logs container_id
+docker run -d -P --link selenium-hub:hub selenium/node-chrome-debug
+docker run -d -P --link selenium-hub:hub selenium/node-firefox-debug
+docker logs container_id
+
+docker-compose up -d
+docker-compose ps
+docker-compose logs nameofservice
