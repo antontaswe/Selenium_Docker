@@ -38,13 +38,13 @@ namespace SeleniumDockerTests
             if(browserType==BrowserType.Chrome)
             {
                 var cap = new ChromeOptions();
-                Driver = new RemoteWebDriver(new Uri("http://localhost:4446/wd/hub"), cap);
+                Driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), cap);
             }
 
             else if (browserType == BrowserType.Firefox)
             {
                 var cap = new FirefoxOptions();
-                Driver = new RemoteWebDriver(new Uri("http://localhost:4446/wd/hub"), cap);
+                Driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), cap);
             }
         }
 

@@ -13,13 +13,43 @@ namespace SeleniumDockerTests
         }
 
         [Test]
-        public void ChromeGoogleTest()
+        public void TestAppTitle()
         {
-            Driver.Navigate().GoToUrl("http://www.google.com");
-            Driver.FindElement(By.Name("q")).SendKeys("BTH University");
-            Driver.FindElement(By.Name("btnK")).Click();
-            Assert.That(Driver.PageSource.Contains("BTH"), Is.EqualTo(true), "The Text BTH doesn't exists");
+            Driver.Navigate().GoToUrl("http://bth_demo:3000");
+            Assert.That(Driver.PageSource.Contains("Take Notes"), Is.EqualTo(true), "The text Take Notes doesn't exists");
         }
+
+        [Test]
+        public void TestNewNoteSave()
+        {
+            Driver.Navigate().GoToUrl("http://bth_demo:3000");
+            Driver.FindElement(By.Id("new")).Click();
+            Driver.FindElement(By.Name("title")).SendKeys("This is a title");
+            Driver.FindElement(By.Name("description")).SendKeys("This is a description");
+            Driver.FindElement(By.Id("save")).Click();
+        }
+
+        [Test]
+        public void TestNewNoteCancel()
+        {
+            Driver.Navigate().GoToUrl("http://bth_demo:3000");
+            Driver.FindElement(By.Id("new")).Click();
+            Driver.FindElement(By.Name("title")).SendKeys("This is a temporary title");
+            Driver.FindElement(By.Name("description")).SendKeys("This is a temporary description");
+            Driver.FindElement(By.Id("cancel")).Click();
+        }
+
+        [Test]
+        public void TestDeleteNote()
+        {
+            Driver.Navigate().GoToUrl("http://bth_demo:3000");
+            Driver.FindElement(By.Id("new")).Click();
+            Driver.FindElement(By.Name("title")).SendKeys("This is a title to be deleted");
+            Driver.FindElement(By.Name("description")).SendKeys("This is a description");
+            Driver.FindElement(By.Id("save")).Click();
+            Driver.FindElements(By.ClassName("btn-danger"))[0].Click();
+        }
+
     }
 
     [TestFixture]
@@ -31,12 +61,42 @@ namespace SeleniumDockerTests
         }
 
         [Test]
-        public void FirefoxGoogleTest()
+        public void TestAppTitle()
         {
-            Driver.Navigate().GoToUrl("http://www.google.com");
-            Driver.FindElement(By.Name("q")).SendKeys("BTH University");
-            Driver.FindElement(By.Name("btnK")).Click();
-            Assert.That(Driver.PageSource.Contains("BTH"), Is.EqualTo(true), "The Text BTH doesn't exists");
+            Driver.Navigate().GoToUrl("http://bth_demo:3000");
+            Assert.That(Driver.PageSource.Contains("Take Notes"), Is.EqualTo(true), "The text Take Notes doesn't exists");
         }
+
+        [Test]
+        public void TestNewNoteSave()
+        {
+            Driver.Navigate().GoToUrl("http://bth_demo:3000");
+            Driver.FindElement(By.Id("new")).Click();
+            Driver.FindElement(By.Name("title")).SendKeys("This is a title");
+            Driver.FindElement(By.Name("description")).SendKeys("This is a description");
+            Driver.FindElement(By.Id("save")).Click();
+        }
+
+        [Test]
+        public void TestNewNoteCancel()
+        {
+            Driver.Navigate().GoToUrl("http://bth_demo:3000");
+            Driver.FindElement(By.Id("new")).Click();
+            Driver.FindElement(By.Name("title")).SendKeys("This is a temporary title");
+            Driver.FindElement(By.Name("description")).SendKeys("This is a temporary description");
+            Driver.FindElement(By.Id("cancel")).Click();
+        }
+
+        [Test]
+        public void TestDeleteNote()
+        {
+            Driver.Navigate().GoToUrl("http://bth_demo:3000");
+            Driver.FindElement(By.Id("new")).Click();
+            Driver.FindElement(By.Name("title")).SendKeys("This is a title to be deleted");
+            Driver.FindElement(By.Name("description")).SendKeys("This is a description");
+            Driver.FindElement(By.Id("save")).Click();
+            Driver.FindElements(By.ClassName("btn-danger"))[0].Click();
+        }
+
     }
 }
