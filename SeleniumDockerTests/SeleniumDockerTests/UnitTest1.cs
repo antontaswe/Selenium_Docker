@@ -44,7 +44,7 @@ namespace SeleniumDockerTests
         {
             Driver.Navigate().GoToUrl("http://bth_demo:3000");
             Driver.FindElement(By.Id("new")).Click();
-            Driver.FindElement(By.Name("title")).SendKeys("This is a title to be deleted");
+            Driver.FindElement(By.Name("title")).SendKeys("This is a title");
             Driver.FindElement(By.Name("description")).SendKeys("This is a description");
             Driver.FindElement(By.Id("save")).Click();
             Driver.FindElements(By.ClassName("btn-danger"))[0].Click();
@@ -92,7 +92,7 @@ namespace SeleniumDockerTests
         {
             Driver.Navigate().GoToUrl("http://bth_demo:3000");
             Driver.FindElement(By.Id("new")).Click();
-            Driver.FindElement(By.Name("title")).SendKeys("This is a title to be deleted");
+            Driver.FindElement(By.Name("title")).SendKeys("This is a title");
             Driver.FindElement(By.Name("description")).SendKeys("This is a description");
             Driver.FindElement(By.Id("save")).Click();
             Driver.FindElements(By.ClassName("btn-danger"))[0].Click();
